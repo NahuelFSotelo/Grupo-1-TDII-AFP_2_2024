@@ -1,0 +1,10 @@
+19:56:46 **** Incremental Build of configuration Debug for project aplicacion-1.4 ****
+make -j12 all 
+arm-none-eabi-size  aplicacion-1.4.elf 
+   text	   data	    bss	    dec	    hex	filename
+  12880	     12	   3452	  16344	   3fd8	aplicacion-1.4.elf
+Finished building: default.size.stdout
+ 
+
+19:56:46 Build Finished. 0 errors, 0 warnings. (took 345ms)
+

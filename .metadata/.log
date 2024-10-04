@@ -1,0 +1,96 @@
+!SESSION 2024-10-04 19:18:09.925 -----------------------------------------------
+eclipse.buildId=Version 1.16.1
+java.version=17.0.11
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=es_AR
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2024-10-04 19:18:19.931
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2024-10-04 19:18:19.940
+!MESSAGE Log4j2 initialized with config file E:\tecnicas digitales 2\entrega2\.metadata\.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2024-10-04 19:18:22.428
+!MESSAGE Started RMI Server, listening on port 41337
+!SESSION 2024-10-04 19:18:42.213 -----------------------------------------------
+eclipse.buildId=Version 1.16.1
+java.version=17.0.11
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=es_AR
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -data E:\tecnicas digitales 2\entrega2
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2024-10-04 19:18:45.636
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2024-10-04 19:18:45.638
+!MESSAGE Log4j2 initialized with config file E:\tecnicas digitales 2\entrega2\.metadata\.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2024-10-04 19:18:48.233
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-10-04 19:19:09.957
+!MESSAGE Indexed 'aplicacion-1.1' (26 sources, 126 headers) in 3.7 sec: 13,567 declarations; 56,318 references; 1 unresolved inclusions; 92 syntax errors; 240 unresolved names (0.34%)
+!SESSION 2024-10-04 19:20:42.010 -----------------------------------------------
+eclipse.buildId=Version 1.16.1
+java.version=17.0.11
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=es_AR
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2024-10-04 19:20:50.170
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2024-10-04 19:20:50.171
+!MESSAGE Log4j2 initialized with config file E:\tecnicas digitales 2\entrega2\.metadata\.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2024-10-04 19:20:53.862
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-10-04 19:21:25.132
+!MESSAGE Indexed 'Ejemplo04_Driver_GPIO' (27 sources, 128 headers) in 4.25 sec: 13,586 declarations; 56,353 references; 1 unresolved inclusions; 92 syntax errors; 240 unresolved names (0.34%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-10-04 19:22:12.778
+!MESSAGE Indexed 'aplicacion-1.2' (26 sources, 126 headers) in 3.05 sec: 13,570 declarations; 56,373 references; 1 unresolved inclusions; 92 syntax errors; 240 unresolved names (0.34%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-10-04 19:22:15.418
+!MESSAGE Indexed 'aplicacion-1.3' (26 sources, 126 headers) in 2.61 sec: 13,578 declarations; 56,463 references; 1 unresolved inclusions; 92 syntax errors; 240 unresolved names (0.34%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-10-04 19:22:17.826
+!MESSAGE Indexed 'aplicacion-1.4' (26 sources, 126 headers) in 2.38 sec: 13,570 declarations; 56,325 references; 1 unresolved inclusions; 92 syntax errors; 240 unresolved names (0.34%)
+
+!ENTRY com.st.stm32cube.ide.mcu.build 4 4 2024-10-04 19:24:09.200
+!MESSAGE Failed to check relative, returning possibly relative path: E:\tecnicas digitales 2\entrega2\aplicacion-1.1\Release/"" literal was "${workspace_loc:/${ProjName}/API}"
+
+!ENTRY com.st.stm32cube.ide.mcu.build 4 4 2024-10-04 19:24:09.200
+!MESSAGE Failed to check relative, returning possibly relative path: E:\tecnicas digitales 2\entrega2\aplicacion-1.1\Release/"" literal was "${workspace_loc:/${ProjName}/API}"
+
+!ENTRY com.st.stm32cube.ide.mcu.build 4 4 2024-10-04 19:24:09.201
+!MESSAGE Failed to check relative, returning possibly relative path: E:\tecnicas digitales 2\entrega2\aplicacion-1.1\Debug/"" literal was "${workspace_loc:/${ProjName}/API}"
+
+!ENTRY com.st.stm32cube.ide.mcu.build 4 4 2024-10-04 19:24:09.201
+!MESSAGE Failed to check relative, returning possibly relative path: E:\tecnicas digitales 2\entrega2\aplicacion-1.1\Debug/"" literal was "${workspace_loc:/${ProjName}/API}"
+
+!ENTRY com.st.stm32cube.ide.mcu.build 4 4 2024-10-04 19:24:23.837
+!MESSAGE Failed to check relative, returning possibly relative path: E:\tecnicas digitales 2\entrega2\aplicacion-1.1\Release/"" literal was "${workspace_loc:/${ProjName}/API}"
+
+!ENTRY com.st.stm32cube.ide.mcu.build 4 4 2024-10-04 19:24:23.837
+!MESSAGE Failed to check relative, returning possibly relative path: E:\tecnicas digitales 2\entrega2\aplicacion-1.1\Release/"" literal was "${workspace_loc:/${ProjName}/API}"
+
+!ENTRY com.st.stm32cube.ide.mcu.build 4 4 2024-10-04 19:24:23.838
+!MESSAGE Failed to check relative, returning possibly relative path: E:\tecnicas digitales 2\entrega2\aplicacion-1.1\Debug/"" literal was "${workspace_loc:/${ProjName}/API}"
+
+!ENTRY com.st.stm32cube.ide.mcu.build 4 4 2024-10-04 19:24:23.839
+!MESSAGE Failed to check relative, returning possibly relative path: E:\tecnicas digitales 2\entrega2\aplicacion-1.1\Debug/"" literal was "${workspace_loc:/${ProjName}/API}"
+
+!ENTRY com.st.stm32cube.ide.mcu.build 4 4 2024-10-04 19:24:28.261
+!MESSAGE Failed to check relative, returning possibly relative path: E:\tecnicas digitales 2\entrega2\aplicacion-1.1\Release/"" literal was "${workspace_loc:/${ProjName}/API}"
+
+!ENTRY com.st.stm32cube.ide.mcu.build 4 4 2024-10-04 19:24:28.261
+!MESSAGE Failed to check relative, returning possibly relative path: E:\tecnicas digitales 2\entrega2\aplicacion-1.1\Release/"" literal was "${workspace_loc:/${ProjName}/API}"
+
+!ENTRY com.st.stm32cube.ide.mcu.build 4 4 2024-10-04 19:24:28.262
+!MESSAGE Failed to check relative, returning possibly relative path: E:\tecnicas digitales 2\entrega2\aplicacion-1.1\Debug/"" literal was "${workspace_loc:/${ProjName}/API}"
+
+!ENTRY com.st.stm32cube.ide.mcu.build 4 4 2024-10-04 19:24:28.262
+!MESSAGE Failed to check relative, returning possibly relative path: E:\tecnicas digitales 2\entrega2\aplicacion-1.1\Debug/"" literal was "${workspace_loc:/${ProjName}/API}"

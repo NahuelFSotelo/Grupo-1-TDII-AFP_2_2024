@@ -1,0 +1,10 @@
+19:45:54 **** Incremental Build of configuration Debug for project aplicacion-1.2 ****
+make -j12 all 
+arm-none-eabi-size  aplicacion-1.2.elf 
+   text	   data	    bss	    dec	    hex	filename
+  12964	     12	   3452	  16428	   402c	aplicacion-1.2.elf
+Finished building: default.size.stdout
+ 
+
+19:45:55 Build Finished. 0 errors, 0 warnings. (took 345ms)
+

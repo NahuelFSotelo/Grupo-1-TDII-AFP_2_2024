@@ -58,7 +58,7 @@ PCD_HandleTypeDef hpcd_USB_OTG_FS;
 
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
-static void MX_GPIO_Init(void);
+void MX_GPIO_Init(void);
 static void MX_ETH_Init(void);
 static void MX_USART3_UART_Init(void);
 static void MX_USB_OTG_FS_PCD_Init(void);
@@ -93,8 +93,7 @@ int main(void)
      uint16_t modo_recorrido=1;
      uint16_t num_led_t =3;
      uint16_t puntero_led_t=0;
-     uint16_t time_LED[] = {100,300,600};
-     uint16_t estado_on_off_t=1;
+     uint16_t time_LED[] = {10000,30000,60000};
      uint16_t CURRENT_time[]= {100,300,600};
   /* USER CODE END Init */
 
@@ -119,7 +118,7 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-	  User_Button = HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_13);
+	  User_Button = readButton_GPIO();
 	          if(User_Button==1)
 	          {
 		         modo_recorrido++;
@@ -129,15 +128,15 @@ int main(void)
 		         }
 		           for(uint8_t i = 0; i < num_led_t; i++)
 		           {
-		        	   HAL_GPIO_WritePin(GPIOB, LED[i], GPIO_PIN_RESET);  //cuando presionamos el boton apagamos todos los leds
+		        	   writeLedOff_GPIO(LED[i]);  //cuando presionamos el boton apagamos todos los leds
 		           }
 		           HAL_Delay(20);
 	          }
 	    if(modo_recorrido==0)               //        PRENDE UNO A LA VEZ X SEGUNDOS
 	    {
-	    	HAL_GPIO_WritePin(GPIOB, LED[puntero_led_t], GPIO_PIN_SET); //enciende el led en la posicion x almacenada en el arreglo LED
+	    	writeLedOn_GPIO(LED[puntero_led_t]); //enciende el led en la posicion x almacenada en el arreglo LED
 	    	HAL_Delay(200);
-	    	HAL_GPIO_WritePin(GPIOB, LED[puntero_led_t], GPIO_PIN_RESET);
+	    	writeLedOff_GPIO(LED[puntero_led_t]);
 	    	HAL_Delay(200);
 	    	puntero_led_t++;                                       // aumenta el puntero
 	           if(puntero_led_t >= num_led_t)                        // condicion para volver a comnezar una vez que recorre el arreglo
@@ -149,12 +148,12 @@ int main(void)
 	    	    {
 	    	          for(uint8_t i = 0; i < num_led_t; i++)
 	    			     {
-	    			        HAL_GPIO_WritePin(GPIOB, LED[i], GPIO_PIN_SET);  //enciende todos los leds
+	    	        	  writeLedOn_GPIO(LED[i]);  //enciende todos los leds
 	    			     }
 	    	           HAL_Delay(300);
 	    	           for(uint8_t i = 0; i < num_led_t; i++)
 	    	             {
-	    	           	    HAL_GPIO_WritePin(GPIOB, LED[i], GPIO_PIN_RESET);  //apaga todos los leds
+	    	        	   writeLedOff_GPIO(LED[i]);  //apaga todos los leds
 	    	             }
 	    	           HAL_Delay(300);
 	    	    }
@@ -163,16 +162,9 @@ int main(void)
                if(HAL_GetTick() - CURRENT_time[puntero_led_t] >= time_LED[puntero_led_t])
                {
 
-            	   if(estado_on_off_t==1)
-            	   {
-            		   HAL_GPIO_WritePin(GPIOB, LED[puntero_led_t], GPIO_PIN_SET);
-            	   }
-            	   if(estado_on_off_t==-1)
-            	   {
-            		   HAL_GPIO_WritePin(GPIOB, LED[puntero_led_t], GPIO_PIN_RESET);
-            	   }
+            	   toggleLed_GPIO(LED[puntero_led_t]);
             	   CURRENT_time[puntero_led_t]=HAL_GetTick();
-            	   estado_on_off_t=estado_on_off_t*-1;
+
                }
                puntero_led_t++;
                if(puntero_led_t>=num_led_t)
@@ -188,7 +180,7 @@ int main(void)
 	    		{
 	    			if(i%2==0)
 	    			    {
-	    				    HAL_GPIO_WritePin(GPIOB, LED[i], GPIO_PIN_SET);
+	    				writeLedOn_GPIO(LED[i]);
            	    		}
 	    		}
 	    	}
@@ -198,7 +190,7 @@ int main(void)
 	    	    {
 	    			if(i %2 !=0)
 	    			  {
-	    				HAL_GPIO_WritePin(GPIOB, LED[i], GPIO_PIN_SET);
+	    				writeLedOn_GPIO(LED[i]);
 	    		      }
 	    	    }
 	    	}
@@ -210,7 +202,7 @@ int main(void)
 	    	HAL_Delay(150);
 	    	for(uint8_t i = 0; i < num_led_t; i++)
 	    		   {
-	    	           HAL_GPIO_WritePin(GPIOB, LED[i], GPIO_PIN_RESET);  //apaga todos los leds
+	    		        writeLedOff_GPIO(LED[i]);  //apaga todos los leds
 	    		   }
 	    }
 
@@ -386,55 +378,55 @@ static void MX_USB_OTG_FS_PCD_Init(void)
   * @param None
   * @retval None
   */
-static void MX_GPIO_Init(void)
-{
-  GPIO_InitTypeDef GPIO_InitStruct = {0};
-/* USER CODE BEGIN MX_GPIO_Init_1 */
-/* USER CODE END MX_GPIO_Init_1 */
-
-  /* GPIO Ports Clock Enable */
-  __HAL_RCC_GPIOC_CLK_ENABLE();
-  __HAL_RCC_GPIOH_CLK_ENABLE();
-  __HAL_RCC_GPIOA_CLK_ENABLE();
-  __HAL_RCC_GPIOB_CLK_ENABLE();
-  __HAL_RCC_GPIOD_CLK_ENABLE();
-  __HAL_RCC_GPIOG_CLK_ENABLE();
-
-  /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOB, LD1_Pin|LD3_Pin|LD2_Pin, GPIO_PIN_RESET);
-
-  /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(USB_PowerSwitchOn_GPIO_Port, USB_PowerSwitchOn_Pin, GPIO_PIN_RESET);
-
-  /*Configure GPIO pin : PC13 */
-  GPIO_InitStruct.Pin = GPIO_PIN_13;
-  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
-
-  /*Configure GPIO pins : LD1_Pin LD3_Pin LD2_Pin */
-  GPIO_InitStruct.Pin = LD1_Pin|LD3_Pin|LD2_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
-
-  /*Configure GPIO pin : USB_PowerSwitchOn_Pin */
-  GPIO_InitStruct.Pin = USB_PowerSwitchOn_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(USB_PowerSwitchOn_GPIO_Port, &GPIO_InitStruct);
-
-  /*Configure GPIO pin : USB_OverCurrent_Pin */
-  GPIO_InitStruct.Pin = USB_OverCurrent_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  HAL_GPIO_Init(USB_OverCurrent_GPIO_Port, &GPIO_InitStruct);
-
-/* USER CODE BEGIN MX_GPIO_Init_2 */
-/* USER CODE END MX_GPIO_Init_2 */
-}
+//static void MX_GPIO_Init(void)
+//{
+//  GPIO_InitTypeDef GPIO_InitStruct = {0};
+///* USER CODE BEGIN MX_GPIO_Init_1 */
+///* USER CODE END MX_GPIO_Init_1 */
+//
+//  /* GPIO Ports Clock Enable */
+//  __HAL_RCC_GPIOC_CLK_ENABLE();
+//  __HAL_RCC_GPIOH_CLK_ENABLE();
+//  __HAL_RCC_GPIOA_CLK_ENABLE();
+//  __HAL_RCC_GPIOB_CLK_ENABLE();
+//  __HAL_RCC_GPIOD_CLK_ENABLE();
+//  __HAL_RCC_GPIOG_CLK_ENABLE();
+//
+//  /*Configure GPIO pin Output Level */
+//  HAL_GPIO_WritePin(GPIOB, LD1_Pin|LD3_Pin|LD2_Pin, GPIO_PIN_RESET);
+//
+//  /*Configure GPIO pin Output Level */
+//  HAL_GPIO_WritePin(USB_PowerSwitchOn_GPIO_Port, USB_PowerSwitchOn_Pin, GPIO_PIN_RESET);
+//
+//  /*Configure GPIO pin : PC13 */
+//  GPIO_InitStruct.Pin = GPIO_PIN_13;
+//  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+//  GPIO_InitStruct.Pull = GPIO_NOPULL;
+//  HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
+//
+//  /*Configure GPIO pins : LD1_Pin LD3_Pin LD2_Pin */
+//  GPIO_InitStruct.Pin = LD1_Pin|LD3_Pin|LD2_Pin;
+//  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+//  GPIO_InitStruct.Pull = GPIO_NOPULL;
+//  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+//  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+//
+//  /*Configure GPIO pin : USB_PowerSwitchOn_Pin */
+//  GPIO_InitStruct.Pin = USB_PowerSwitchOn_Pin;
+//  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+//  GPIO_InitStruct.Pull = GPIO_NOPULL;
+//  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+//  HAL_GPIO_Init(USB_PowerSwitchOn_GPIO_Port, &GPIO_InitStruct);
+//
+//  /*Configure GPIO pin : USB_OverCurrent_Pin */
+//  GPIO_InitStruct.Pin = USB_OverCurrent_Pin;
+//  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+//  GPIO_InitStruct.Pull = GPIO_NOPULL;
+//  HAL_GPIO_Init(USB_OverCurrent_GPIO_Port, &GPIO_InitStruct);
+//
+///* USER CODE BEGIN MX_GPIO_Init_2 */
+///* USER CODE END MX_GPIO_Init_2 */
+//}
 
 /* USER CODE BEGIN 4 */
 

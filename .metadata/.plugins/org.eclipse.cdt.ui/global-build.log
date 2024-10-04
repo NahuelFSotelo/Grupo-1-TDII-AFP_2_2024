@@ -1,0 +1,34 @@
+20:01:18 **** Incremental Build of configuration Debug for project aplicacion-1.3 ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I"E:/tecnicas digitales 2/entrega2/aplicacion-1.3/Drivers/API/Inc" -I"E:/tecnicas digitales 2/entrega2/aplicacion-1.3/Drivers/API/Src" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:121:25: warning: implicit declaration of function 'readButton_GPIO' [-Wimplicit-function-declaration]
+  121 |           User_Button = readButton_GPIO();
+      |                         ^~~~~~~~~~~~~~~
+../Core/Src/main.c:131:36: warning: implicit declaration of function 'writeLedOff_GPIO' [-Wimplicit-function-declaration]
+  131 |                                    writeLedOff_GPIO(LED[i]);  //cuando presionamos el boton apagamos todos los leds
+      |                                    ^~~~~~~~~~~~~~~~
+../Core/Src/main.c:137:17: warning: implicit declaration of function 'writeLedOn_GPIO' [-Wimplicit-function-declaration]
+  137 |                 writeLedOn_GPIO(LED[puntero_led_t]); //enciende el led en la posicion x almacenada en el arreglo LED
+      |                 ^~~~~~~~~~~~~~~
+../Core/Src/main.c:165:20: warning: implicit declaration of function 'toggleLed_GPIO' [-Wimplicit-function-declaration]
+  165 |                    toggleLed_GPIO(LED[puntero_led_t]);
+      |                    ^~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "aplicacion-1.3.elf" @"objects.list"   -mcpu=cortex-m4 -T"E:\tecnicas digitales 2\entrega2\aplicacion-1.3\STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="aplicacion-1.3.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: aplicacion-1.3.elf
+ 
+arm-none-eabi-size  aplicacion-1.3.elf 
+arm-none-eabi-objdump -h -S aplicacion-1.3.elf  > "aplicacion-1.3.list"
+   text	   data	    bss	    dec	    hex	filename
+  13468	     12	   3452	  16932	   4224	aplicacion-1.3.elf
+Finished building: default.size.stdout
+ 
+Finished building: aplicacion-1.3.list
+ 
+20:01:21 **** Incremental Build of configuration Debug for project aplicacion-1.3 ****
+make -j12 all 
+arm-none-eabi-size  aplicacion-1.3.elf 
+   text	   data	    bss	    dec	    hex	filename
+  13468	     12	   3452	  16932	   4224	aplicacion-1.3.elf
+Finished building: default.size.stdout
+ 
